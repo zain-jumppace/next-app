@@ -13,5 +13,8 @@ jobs:
       - name: Installing Dependencies
         run: npm install
 
+      - name: Build the Next.js app
+        run: npm run build
+
       - name: Run the app
         run: pm2 start npm --name "next-app" -- start -- -p 3000
