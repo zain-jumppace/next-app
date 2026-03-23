@@ -1,0 +1,17 @@
+name: MY-Next-APP PIPELINE   
+
+on:
+  push:
+    branches: [main]
+
+jobs: 
+  Setup-and-deploy: 
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Installing Dependencies
+        run: npm install
+
+      - name: Run the app
+        run: pm2 start npm --name "my-node-app" -- start -- -p 3000
